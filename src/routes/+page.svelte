@@ -69,14 +69,18 @@
     let input = message.input.input;
     let value = message.value.value;
     let date = new Date();
+    let coords = [
+      currentPosition.coords.longitude,
+      currentPosition.coords.latitude,
+    ];
+    if (currentPosition.coords.altitude !== null) {
+      coords.push(currentPosition.coords.altitude);
+    }
     return {
       type: "Feature",
       geometry: {
         type: "Point",
-        coordinates: [
-          currentPosition.coords.longitude,
-          currentPosition.coords.latitude,
-        ],
+        coordinates: coords,
       },
       properties: {
         input,
