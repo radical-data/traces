@@ -55,11 +55,11 @@
     getLocation();
   });
 
-  let messages = [];
+  let messages = { type: "FeatureCollection", features: [] };
 
   const addNewMessage = (event) => {
     let bundledMessage = bundleMessage(event.detail);
-    messages = [...messages, bundledMessage];
+    messages.features = [...messages.features, bundledMessage];
     // messages.push(bundledMessage);
     // messages = messages;
     console.log(messages);
@@ -68,12 +68,21 @@
   function bundleMessage(message) {
     let input = message.input.input;
     let value = message.value.value;
+    let date = new Date();
     return {
-      input,
-      value,
-      datetime: new Date(),
-      latitude: currentPosition.coords.latitude,
-      longitude: currentPosition.coords.longitude,
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [
+          currentPosition.coords.longitude,
+          currentPosition.coords.latitude,
+        ],
+      },
+      properties: {
+        input,
+        value,
+        date,
+      },
     };
   }
 </script>
