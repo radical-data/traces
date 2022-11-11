@@ -5,7 +5,7 @@
 
   function saveJson() {
     let blob = new Blob([JSON.stringify(output)], {
-      type: "application/json",
+      type: "application/geo+json",
     });
     let d = new Date();
     let formatted_date =
