@@ -1,6 +1,11 @@
+@font-face {
+  font-family: Urbanist;
+  src: url("./fonts/Urbanist-VariableFont_wght.woff2") format("woff2");
+}
+
 html {
   background-color: #f9f5f2;
-  font-family: "Urbanist", Helvetica, Arial, sans-serif;
+  font-family: Urbanist, Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -30,5 +35,5 @@ button {
 }
 
 input {
-  font-family: "Urbanist", Helvetica, Arial, sans-serif;
+  font-family: Urbanist, Helvetica, Arial, sans-serif;
 }
