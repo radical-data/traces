@@ -5,17 +5,24 @@
     let message;
     if (messages.features.length > 0) {
       let lastMessage = messages.features[messages.features.length - 1];
+      let longitude_to_print = "coordinates not found";
+      let latitude_to_print = "coordinates not found";
+      console.log(lastMessage.geometry.coordinates);
+      // arr.includes(undefined);
+      if (!lastMessage.geometry.coordinates.includes(undefined)) {
+        latitude_to_print = lastMessage.geometry.coordinates[1].toFixed(6);
+        longitude_to_print = lastMessage.geometry.coordinates[1].toFixed(6);
+      }
       message =
         lastMessage.properties.input +
         ": " +
         lastMessage.properties.value +
         " at (" +
         // concatenate to level of individual humans https://en.wikipedia.org/wiki/Decimal_degrees#Precision
-        lastMessage.geometry.coordinates[1].toFixed(6) +
+        latitude_to_print +
         ", " +
-        lastMessage.geometry.coordinates[0].toFixed(6) +
+        longitude_to_print +
         ")";
-      //   JSON.stringify(messages[messages.length - 1]);
     } else {
       message = " ";
     }
