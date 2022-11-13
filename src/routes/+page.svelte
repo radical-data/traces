@@ -27,10 +27,10 @@
   function success(pos) {
     const crd = pos.coords;
 
-    console.log("Your current position is:");
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
+    // console.log("Your current position is:");
+    // console.log(`Latitude : ${crd.latitude}`);
+    // console.log(`Longitude: ${crd.longitude}`);
+    // console.log(`More or less ${crd.accuracy} meters.`);
   }
   function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -60,9 +60,7 @@
   const addNewMessage = (event) => {
     let bundledMessage = bundleMessage(event.detail);
     messages.features = [...messages.features, bundledMessage];
-    // messages.push(bundledMessage);
-    // messages = messages;
-    console.log(messages);
+    // console.log(messages);
   };
 
   function bundleMessage(message) {
