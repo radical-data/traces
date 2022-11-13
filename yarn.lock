@@ -31,15 +31,15 @@
     esbuild "^0.15.12"
     set-cookie-parser "^2.5.1"
 
-"@sveltejs/kit@next":
-  version "1.0.0-next.532"
-  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.0.0-next.532.tgz#3283c97d8cc6ffe4552a930aa966b37f61189e56"
-  integrity sha512-g+t+dncoz/DBc1mfwSfBaIBqE5pl0caMUy7yZzjsnyw0WG3AevC04d2KfTOgtOMgXVDnSVqZxlTR+MM5tnKeyw==
+"@sveltejs/kit@^1.0.0-next.544":
+  version "1.0.0-next.544"
+  resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.0.0-next.544.tgz#3ceec5f05515ab0afffc98b24c60dc05c6a5f6e6"
+  integrity sha512-zgQHiSvxiTDjJJROj9mPwIEoT6sAopagDroh89cHKarKc2eK/1nISA2dascKz/atGF8mghOn7RXZPnPofr01fQ==
   dependencies:
     "@sveltejs/vite-plugin-svelte" "^1.1.0"
     "@types/cookie" "^0.5.1"
     cookie "^0.5.0"
-    devalue "^4.1.0"
+    devalue "^4.2.0"
     kleur "^4.1.5"
     magic-string "^0.26.7"
     mime "^3.0.0"
@@ -50,9 +50,9 @@
     undici "5.12.0"
 
 "@sveltejs/vite-plugin-svelte@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-1.1.0.tgz#691ec35c7a96f5dd724f52e2eafff50a0debae05"
-  integrity sha512-cFRfEdztubtj1c/rYh7ArK7XCfFJn6wG6+J8/e9amFsKtEJILovoBrK0/mxt1AjPQg0vaX+fHPKvhx+q8mTPaQ==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-1.1.1.tgz#15acaa21b579c6c00f3be3c5bd2e69e91dfb2632"
+  integrity sha512-NzIaGIzWh5hCSMUoxukYEGmxFCWgzaVglqHJLV5r0BA7hHZbHXu8DYR80i6QUX4xyoQ4PZ8ir7SUYsThbreMcg==
   dependencies:
     debug "^4.3.4"
     deepmerge "^4.2.2"
@@ -89,7 +89,7 @@ deepmerge@^4.2.2:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
   integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
 
-devalue@^4.1.0:
+devalue@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/devalue/-/devalue-4.2.0.tgz#3f542d7c828e317bab5fd3bcecde210af8f83d4b"
   integrity sha512-mbjoAaCL2qogBKgeFxFPOXAUsZchircF+B/79LD4sHH0+NHfYm8gZpQrskKDn5gENGt35+5OI1GUF7hLVnkPDw==
@@ -309,9 +309,9 @@ picocolors@^1.0.0:
   integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
 
 postcss@^8.4.18:
-  version "8.4.18"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.18.tgz#6d50046ea7d3d66a85e0e782074e7203bc7fbca2"
-  integrity sha512-Wi8mWhncLJm11GATDaQKobXSNEYGUHeQLiQqDFG1qQ5UTDPTEvKw0Xt5NsTpktGTwLps3ByrWsBrG0rB8YQ9oA==
+  version "8.4.19"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.19.tgz#61178e2add236b17351897c8bcc0b4c8ecab56fc"
+  integrity sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA==
   dependencies:
     nanoid "^3.3.4"
     picocolors "^1.0.0"
@@ -385,9 +385,9 @@ svelte-hmr@^0.15.0:
   integrity sha512-Aw21SsyoohyVn4yiKXWPNCSW2DQNH/76kvUnE9kpt4h9hcg9tfyQc6xshx9hzgMfGF0kVx0EGD8oBMWSnATeOg==
 
 svelte@^3.44.0:
-  version "3.52.0"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.52.0.tgz#08259eff20904c63882b66a5d409a55e8c6743b8"
-  integrity sha512-FxcnEUOAVfr10vDU5dVgJN19IvqeHQCS1zfe8vayTfis9A2t5Fhx+JDe5uv/C3j//bB1umpLJ6quhgs9xyUbCQ==
+  version "3.53.1"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.53.1.tgz#db9d7df7a8f570e8e22547444c149208b1914442"
+  integrity sha512-Q4/hHkktZogGhN5iqxqSi9sjEVoe/NbIxX4hXEHoasTxj+TxEQVAq66LnDMdAZxjmsodkoI5F3slqsS68U7FNw==
 
 tiny-glob@^0.2.9:
   version "0.2.9"
@@ -409,10 +409,10 @@ undici@5.12.0:
   dependencies:
     busboy "^1.6.0"
 
-vite@^3.1.0:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-3.2.2.tgz#280762bfaf47bcea1d12698427331c0009ac7c1f"
-  integrity sha512-pLrhatFFOWO9kS19bQ658CnRYzv0WLbsPih6R+iFeEEhDOuYgYCX2rztUViMz/uy/V8cLCJvLFeiOK7RJEzHcw==
+vite@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-3.2.3.tgz#7a68d9ef73eff7ee6dc0718ad3507adfc86944a7"
+  integrity sha512-h8jl1TZ76eGs3o2dIBSsvXDLb1m/Ec1iej8ZMdz+PsaFUsftZeWe2CZOI3qogEsMNaywc17gu0q6cQDzh/weCQ==
   dependencies:
     esbuild "^0.15.9"
     postcss "^8.4.18"
