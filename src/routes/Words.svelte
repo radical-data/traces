@@ -39,7 +39,7 @@
   }
   input[type="text"] {
     padding: 10px;
-    width: 100%;
+    width: calc(100% - 20px);
     border: 0;
     border-block-end: 2px;
     border-color: black;
