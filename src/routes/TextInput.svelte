@@ -1,5 +1,8 @@
 <script>
   import Input from "./Input.svelte";
+
+  export let input = "Text";
+  export let mode = "collect";
   function submit() {
     update();
   }
@@ -12,13 +15,20 @@
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
   function update() {
-    dispatch("update", { input: { input: "text" }, value: { value } });
-    value = "";
+    if (mode == "collect") {
+      if (value !== "") {
+        dispatch("update", { input: { input }, value: { value } });
+        value = "";
+        if (value == "") {
+          // shake input
+        }
+      }
+    }
   }
 </script>
 
 <Input>
-  <label for="free-text">Free text</label>
+  <label for="free-text">{input}</label>
   <input
     type="text"
     id="free-text"
@@ -26,7 +36,13 @@
     bind:value
     on:keydown={keySubmit}
   />
-  <button type="submit" on:click={submit}>Add</button>
+  <button type="submit" on:click={submit}
+    >{#if mode == "edit"}
+      <input bind:value={input} type="text" id="buttonLabel" />
+    {:else}
+      {input}
+    {/if}</button
+  >
 </Input>
 
 <style>
@@ -44,5 +60,9 @@
     border-block-end: 2px;
     border-color: black;
     border-style: solid;
+    background-color: transparent;
+  }
+  button {
+    margin-block-start: 0.5rem;
   }
 </style>
