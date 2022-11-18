@@ -1,7 +1,7 @@
 <script>
   import Camera from "./Camera.svelte";
   import Counter from "./Counter.svelte";
-  import Words from "./Words.svelte";
+  import TextInput from "./TextInput.svelte";
   // import Geolocation from "./Geolocation.svelte";
   import SaveData from "./SaveData.svelte";
   import MessageReadOut from "./MessageReadOut.svelte";
@@ -13,9 +13,14 @@
     mode = mode == "collect" ? "edit" : "collect";
   }
 
-  let inputs = [{ label: "Counter" }];
-  function addItem() {
-    inputs = inputs.concat({});
+  let inputs = [{ component: Counter }, { component: TextInput }];
+  function addCounter() {
+    inputs = [...inputs, { component: Counter }];
+    // inputs = inputs.concat({});
+  }
+
+  function addTextInput() {
+    inputs = [...inputs, { component: TextInput }];
   }
 
   let currentPosition = { coords: "ye" };
@@ -90,7 +95,7 @@
 </script>
 
 <svelte:head />
-<header><h1>Data Walk Collecter</h1></header>
+<header><h1>Data Walk Collector</h1></header>
 <main>
   <aside>
     <!-- <Geolocation /> -->
@@ -102,14 +107,20 @@
         >{mode == "collect" ? "Edit Interface" : "Save Interface"}</button
       >
       {#if mode == "edit"}
-        <button on:click={addItem}>Add Counter</button>
+        <button on:click={addCounter}>Add Counter</button>
+      {/if}
+      {#if mode == "edit"}
+        <button on:click={addTextInput}>Add Text Input</button>
       {/if}
     </section>
     <section id="inputs">
       {#each inputs as input}
-        <svelte:component this={Counter} {mode} on:update={addNewMessage} />
+        <svelte:component
+          this={input.component}
+          {mode}
+          on:update={addNewMessage}
+        />
       {/each}
-      <Words on:update={addNewMessage} />
       <!-- <Camera /> -->
     </section>
     <section>
@@ -130,5 +141,9 @@
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(120px, 0.5fr));
     margin-block: 1em;
+  }
+
+  #edit-interface button:not(:first-of-type) {
+    margin-block-start: 0.5rem;
   }
 </style>
