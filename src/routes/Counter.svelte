@@ -16,10 +16,13 @@
 <Input>
   <div>
     <p>{value}</p>
-    <button on:click={update}>{input}</button>
-    {#if mode == "edit"}
-      <input bind:value={input} type="text" id="buttonLabel" />
-    {/if}
+    <button on:click={update}>
+      {#if mode == "edit"}
+        <input bind:value={input} type="text" id="buttonLabel" />
+      {:else}
+        {input}
+      {/if}</button
+    >
   </div>
 </Input>
 
