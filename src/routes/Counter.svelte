@@ -8,8 +8,10 @@
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
   function update() {
-    value += 1;
-    dispatch("update", { input: { input }, value: { value } });
+    if (mode == "collect") {
+      value += 1;
+      dispatch("update", { input: { input }, value: { value } });
+    }
   }
 </script>
 
@@ -31,11 +33,21 @@
     font-size: 3rem;
     margin: 0;
   }
+
   input {
+    font-size: 1.3rem;
     width: 100%;
   }
-
   button {
     max-width: 100%;
+  }
+  input[type="text"] {
+    padding: 10px;
+    width: calc(100% - 20px);
+    border: 0;
+    border-block-end: 2px;
+    border-color: black;
+    border-style: solid;
+    background-color: transparent;
   }
 </style>
