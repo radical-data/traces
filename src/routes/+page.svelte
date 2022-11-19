@@ -16,7 +16,6 @@
   let inputs = [{ component: Counter }, { component: TextInput }];
   function addCounter() {
     inputs = [...inputs, { component: Counter }];
-    // inputs = inputs.concat({});
   }
 
   function addTextInput() {
@@ -69,7 +68,9 @@
   };
 
   function bundleMessage(message) {
-    let input = message.input.input;
+    console.log(message);
+    let input_type = message.input_type;
+    let title = message.title.title;
     let value = message.value.value;
     let date = new Date();
     let coords = [
@@ -86,7 +87,8 @@
         coordinates: coords,
       },
       properties: {
-        input,
+        input_type,
+        title,
         value,
         date,
       },

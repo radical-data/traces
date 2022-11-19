@@ -1,7 +1,7 @@
 <script>
   import Input from "./Input.svelte";
 
-  export let input = "Text";
+  export let title = "Text";
   export let mode = "collect";
   function submit() {
     update();
@@ -17,7 +17,11 @@
   function update() {
     if (mode == "collect") {
       if (value !== "") {
-        dispatch("update", { input: { input }, value: { value } });
+        dispatch("update", {
+          input_type: "text",
+          title: { title },
+          value: { value },
+        });
         value = "";
         if (value == "") {
           // shake input
@@ -28,7 +32,7 @@
 </script>
 
 <Input>
-  <label for="free-text">{input}</label>
+  <label for="free-text">{title}</label>
   <input
     type="text"
     id="free-text"
@@ -38,9 +42,9 @@
   />
   <button type="submit" on:click={submit}
     >{#if mode == "edit"}
-      <input bind:value={input} type="text" id="buttonLabel" />
+      <input bind:value={title} type="text" id="buttonLabel" />
     {:else}
-      {input}
+      {title}
     {/if}</button
   >
 </Input>

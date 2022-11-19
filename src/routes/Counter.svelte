@@ -1,7 +1,7 @@
 <script>
   import Input from "./Input.svelte";
 
-  export let input = "Counter";
+  export let title = "Counter";
   export let mode = "collect";
   let value = 0;
 
@@ -10,7 +10,11 @@
   function update() {
     if (mode == "collect") {
       value += 1;
-      dispatch("update", { input: { input }, value: { value } });
+      dispatch("update", {
+        input_type: "counter",
+        title: { title },
+        value: { value },
+      });
     }
   }
 </script>
@@ -20,9 +24,9 @@
     <p>{value}</p>
     <button on:click={update}>
       {#if mode == "edit"}
-        <input bind:value={input} type="text" id="buttonLabel" />
+        <input bind:value={title} type="text" id="buttonLabel" />
       {:else}
-        {input}
+        {title}
       {/if}</button
     >
   </div>

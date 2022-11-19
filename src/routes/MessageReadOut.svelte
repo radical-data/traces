@@ -12,7 +12,7 @@
         longitude_to_print = lastMessage.geometry.coordinates[0].toFixed(6);
       }
       message =
-        lastMessage.properties.input +
+        lastMessage.properties.title +
         ": " +
         lastMessage.properties.value +
         " at (" +
