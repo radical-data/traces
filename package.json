@@ -13,6 +13,7 @@
     "file-saver": "^2.0.5",
     "svelte": "^3.44.0",
     "svelte-geolocation": "^0.3.0",
+    "svelte-textfit": "^1.1.4",
     "vite": "^3.2.3"
   },
   "type": "module",

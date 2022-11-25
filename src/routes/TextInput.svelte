@@ -1,5 +1,7 @@
 <script>
   import Input from "./Input.svelte";
+  import { textfit } from "svelte-textfit";
+  let parent;
 
   export let title = "Text";
   export let mode = "collect";
@@ -44,7 +46,16 @@
     >{#if mode == "edit"}
       <input bind:value={title} type="text" id="buttonLabel" />
     {:else}
-      {title}
+      <div bind:this={parent}>
+        <span
+          use:textfit={{
+            parent,
+            update: { title },
+          }}
+        >
+          {title}
+        </span>
+      </div>
     {/if}</button
   >
 </Input>
@@ -68,5 +79,6 @@
   }
   button {
     margin-block-start: 0.5rem;
+    max-width: 100%;
   }
 </style>
