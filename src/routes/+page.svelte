@@ -97,7 +97,7 @@
 </script>
 
 <svelte:head />
-<header><h1>Data Walk Collector</h1></header>
+<header><h1>Comapping: Collector</h1></header>
 <main>
   <aside>
     <!-- <Geolocation /> -->
