@@ -1,7 +1,4 @@
-@font-face {
-  font-family: Manjari;
-  src: url("./fonts/Manjari-Regular.woff2") format("woff2");
-}
+@import "@fontsource/manjari";
 
 html {
   /* background-color: #f9f5f2; */
