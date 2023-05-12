@@ -1,7 +1,8 @@
 <script lang="ts">
   import { collected_data } from "../stores";
   import { bundleMessage } from "$lib/bundleMessage";
-  export let title: string = "Text";
+  import { mode } from "../stores";
+  let title: string = "Text";
   let value: string = "";
   let lastValue: string = "";
 
@@ -10,6 +11,13 @@
   function keySubmit(event: KeyboardEvent) {
     if (event.key === "Enter") {
       update();
+    }
+  }
+
+  function editKeySubmit(event: KeyboardEvent) {
+    if (event.key === "Enter") {
+      const element = document.getElementById(id);
+      element.blur();
     }
   }
 
@@ -38,14 +46,24 @@
 
 <button class="input" on:click={update}>
   <!-- <p>{lastValue}</p> -->
-  <input
-    type="text"
-    {id}
-    name="free-text"
-    placeholder={title}
-    bind:value
-    on:keydown={keySubmit}
-  />
+  {#if $mode == "edit"}
+    <input
+      type="text"
+      {id}
+      bind:value={title}
+      placeholder="Input Name"
+      on:keydown={editKeySubmit}
+    />
+  {:else}
+    <input
+      type="text"
+      {id}
+      name="free-text"
+      placeholder={title}
+      bind:value
+      on:keydown={keySubmit}
+    />
+  {/if}
 </button>
 <label for={id}>{title}</label>
 
