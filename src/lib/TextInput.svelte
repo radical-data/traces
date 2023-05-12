@@ -17,7 +17,9 @@
   function editKeySubmit(event: KeyboardEvent) {
     if (event.key === "Enter") {
       const element = document.getElementById(id);
-      element.blur();
+      if (element) {
+        element.blur();
+      }
     }
   }
 
