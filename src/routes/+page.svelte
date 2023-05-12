@@ -2,24 +2,21 @@
   import Counter from "$lib/Counter.svelte";
   import TextInput from "$lib/TextInput.svelte";
   import { onMount } from "svelte";
+  import type { SvelteComponent } from "svelte";
   import { trackers } from "../stores";
 
   import { mode } from "../stores";
   import ExportModal from "$lib/ExportModal.svelte";
   import AddInputModal from "$lib/AddInputModal.svelte";
 
-  $trackers = [
-    { component: Counter },
-    { component: TextInput },
-    { component: Counter },
-    { component: TextInput },
-  ];
+  $trackers = [{ component: Counter }, { component: TextInput }];
+
   let showAddInputModal: boolean = false;
   function addInput() {
     showAddInputModal = true;
   }
 
-  function chooseComponent(type: SvelteComponent) {
+  function chooseComponent(type: typeof SvelteComponent) {
     $trackers = [...$trackers, { component: type }];
     showAddInputModal = false;
   }
@@ -57,6 +54,7 @@
     currentPosition = position;
   }
   let currentLocation;
+
   onMount(() => {
     getLocation();
   });
