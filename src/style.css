@@ -1,11 +1,12 @@
 @font-face {
-  font-family: Urbanist;
-  src: url("./fonts/Urbanist-VariableFont_wght.woff2") format("woff2");
+  font-family: Manjari;
+  src: url("./fonts/Manjari-Regular.woff2") format("woff2");
 }
 
 html {
-  background-color: #f9f5f2;
-  font-family: Urbanist, Helvetica, Arial, sans-serif;
+  /* background-color: #f9f5f2; */
+  background-color: #fff;
+  font-family: Manjari, Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -40,6 +41,4 @@ button {
   touch-action: manipulation;
 }
 
-input {
-  font-family: Urbanist, Helvetica, Arial, sans-serif;
 }
