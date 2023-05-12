@@ -8,19 +8,11 @@
     let blob: Blob = new Blob([JSON.stringify($data)], {
       type: "application/geo+json",
     });
-    let d: Date = new Date();
-    let formatted_date: string =
-      d.getFullYear() +
-      "-" +
-      (d.getMonth() + 1) +
-      "-" +
-      d.getDate() +
-      "-" +
-      d.getHours() +
-      "-" +
-      d.getMinutes() +
-      "-" +
-      d.getSeconds();
+    const d = new Date();
+    const formatted_date = `${d.getFullYear()}-${
+      d.getMonth() + 1
+    }-${d.getDate()}-${d.getHours()}-${d.getMinutes()}-${d.getSeconds()}`;
+
     let extension: string = ".geojson";
     let file_name: string = "data-walk-" + formatted_date + extension;
     saveAs(blob, file_name);
