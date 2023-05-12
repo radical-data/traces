@@ -12,9 +12,8 @@
     const formatted_date = `${d.getFullYear()}-${
       d.getMonth() + 1
     }-${d.getDate()}-${d.getHours()}-${d.getMinutes()}-${d.getSeconds()}`;
-
     let extension: string = ".geojson";
-    let file_name: string = "data-walk-" + formatted_date + extension;
+    const file_name = `data-walk-${formatted_date}${extension}`;
     saveAs(blob, file_name);
   }
   function handleClick(event: MouseEvent): void {
