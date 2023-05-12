@@ -1,6 +1,6 @@
 <script lang="ts">
   import { data } from "../stores";
-  import { bundleMessage } from "$lib/bundleMessage.js";
+  import { bundleMessage } from "$lib/bundleMessage";
   export let title: string = "Text";
   let value: string = "";
   let lastValue: string = "";
