@@ -1,32 +1,27 @@
 <script>
-  import { onDestroy } from "svelte";
-
   import { mode } from "../stores";
 
   const handleEditClick = () => {
     $mode = "edit";
-    // window.history.pushState(null, "", `?mode=${mode}`);
   };
-
-  //   onDestroy(() => {
-  //     window.history.replaceState(null, "", window.location.pathname);
-  //   });
 
   const handleCollectClick = () => {
     $mode = "collect";
-    // window.history.pushState(null, "", `?mode=${mode}`);
   };
 
   const handleExportClick = () => {
     $mode = "export";
-    // window.history.pushState(null, "", `?mode=${mode}`);
   };
+
+  $: editClass = $mode === "edit" ? "edit" : "";
+  $: collectClass = $mode === "collect" ? "collect" : "";
+  $: exportClass = $mode === "export" ? "export" : "";
 </script>
 
 <nav>
-  <button on:click={handleEditClick}>Edit</button>
-  <button on:click={handleCollectClick}>Collect</button>
-  <button on:click={handleExportClick}>Export</button>
+  <button on:click={handleEditClick} class={editClass}>Edit</button>
+  <button on:click={handleCollectClick} class={collectClass}>Collect</button>
+  <button on:click={handleExportClick} class={exportClass}>Export</button>
 </nav>
 
 <style>
@@ -43,8 +38,7 @@
     align-items: center;
   }
 
-  nav button,
-  nav a {
+  nav button {
     background-color: #eee;
     color: #333;
     border: none;
@@ -56,13 +50,29 @@
     transition: background-color 0.3s ease;
   }
 
-  nav button:last-child,
-  nav a:last-child {
+  nav button:last-child {
     margin-right: 0;
   }
 
-  nav button:hover,
-  nav a:hover {
+  nav button:hover {
     background-color: #ddd;
+  }
+
+  nav button.edit {
+    /* Style for the Edit button when mode is "edit" */
+    background-color: blue;
+    color: white;
+  }
+
+  nav button.collect {
+    /* Style for the Collect button when mode is "collect" */
+    background-color: green;
+    color: white;
+  }
+
+  nav button.export {
+    /* Style for the Export button when mode is "export" */
+    background-color: orange;
+    color: white;
   }
 </style>
