@@ -1,5 +1,6 @@
 <script>
-  import "../style.css";
+  import Nav from "$lib/Nav.svelte";
+import "../style.css";
 </script>
 
 <svelte:head />
@@ -9,11 +10,7 @@
 </main>
 
 <footer>
-  <nav>
-    <a href="/edit">Edit</a>
-    <a href="/">Collect</a>
-    <a href="/export">Export</a>
-  </nav>
+  <Nav></Nav>
   <p>A <a href="https://radicaldata.org">Radical Data</a> tool.</p>
 </footer>
 
