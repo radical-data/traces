@@ -4,7 +4,7 @@ import type { FeatureCollection } from "geojson";
 
 export const trackers: Writable<Tracker[]> = writable([]);
 
-export const data: Writable<FeatureCollection> = writable({
+export const collected_data: Writable<FeatureCollection> = writable({
   type: "FeatureCollection",
   features: [],
 });

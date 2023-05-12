@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { data } from "../stores";
+  import { collected_data } from "../stores";
   import { bundleMessage } from "$lib/bundleMessage";
   export let title: string = "Text";
   let value: string = "";
@@ -24,7 +24,10 @@
           title,
           value,
         };
-        $data.features = [...$data.features, bundleMessage(message)];
+        $collected_data.features = [
+          ...$collected_data.features,
+          bundleMessage(message),
+        ];
         lastValue = value;
         value = "";
         element.blur();
