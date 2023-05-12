@@ -32,7 +32,8 @@
     width: auto;
     background-color: rgba(0, 0, 0, 0.4);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
+    padding: 10px;
     display: inline-flex; /* Changed from flex */
     justify-content: space-between;
     align-items: center;
@@ -40,7 +41,7 @@
 
   nav button {
     background-color: #eee;
-    color: #333;
+    /* color: #333; */
     border: none;
     border-radius: 5px;
     padding: 8px 12px;
