@@ -6,10 +6,6 @@ html {
   font-family: Manjari, Helvetica, Arial, sans-serif;
 }
 
-body {
-  /* margin: 5%; */
-}
-
 body > div {
   min-height: 95vh;
   display: grid;
