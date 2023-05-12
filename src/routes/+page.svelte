@@ -4,7 +4,7 @@
   import { onMount } from "svelte";
   import { trackers } from "../stores";
 
-  let mode: Mode = "collect";
+  import { mode } from "../stores";
 
   $trackers = [
     { component: Counter },

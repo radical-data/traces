@@ -2,14 +2,14 @@
   import { textfit } from "svelte-textfit";
   import { collected_data } from "../stores";
   import { bundleMessage } from "$lib/bundleMessage";
+  import { mode } from "../stores";
 
   export let title: string = "Counter";
-  export let mode: Mode = "collect";
   let value: number = 0;
   let parent: Node;
 
   function update() {
-    if (mode == "collect") {
+    if ($mode == "collect") {
       value += 1;
       let message: Message = {
         input_type: "counter",
@@ -27,7 +27,7 @@
 <button class="input" on:click={update}>
   <p>{value}</p>
 
-  {#if mode == "edit"}
+  {#if $mode == "edit"}
     <input bind:value={title} type="text" id="buttonLabel" />
   {:else}
     <div bind:this={parent}>

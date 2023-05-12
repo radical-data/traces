@@ -8,3 +8,5 @@ export const collected_data: Writable<FeatureCollection> = writable({
   type: "FeatureCollection",
   features: [],
 });
+
+export const mode: Writable<Mode> = writable("collect");
