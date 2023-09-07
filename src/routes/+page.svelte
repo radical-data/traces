@@ -20,43 +20,6 @@
     showAddInputModal = false;
   }
 
-  let currentPosition: GeolocationPosition;
-  const options = {
-    // enableHighAccuracy: true,
-    // timeout: 5000,
-    // maximumAge: 0,
-  };
-  function success(pos: GeolocationPosition) {
-    const crd = pos.coords;
-
-    // console.log("Your current position is:");
-    // console.log(`Latitude : ${crd.latitude}`);
-    // console.log(`Longitude: ${crd.longitude}`);
-    // console.log(`More or less ${crd.accuracy} meters.`);
-  }
-  function error(err: GeolocationPositionError) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-  }
-  function getLocation() {
-    console.log("trying to get geolocation enabled");
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, error, options);
-      navigator.geolocation.watchPosition(trackPosition, error, options);
-      console.log("geo location enabled");
-    } else {
-      console.log("geo location failed");
-      // geoEnabled.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-
-  function trackPosition(position: GeolocationPosition) {
-    currentPosition = position;
-  }
-  let currentLocation;
-
-  onMount(() => {
-    getLocation();
-  });
 </script>
 
 <article>
