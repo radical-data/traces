@@ -3,9 +3,8 @@
   import TextInput from "$lib/TextInput.svelte";
   import { onMount } from "svelte";
   import type { SvelteComponent } from "svelte";
-  import { trackers } from "../stores";
 
-  import { mode } from "../stores";
+  import { trackers, mode, coordinates } from "../stores";
   import ExportModal from "$lib/ExportModal.svelte";
   import AddInputModal from "$lib/AddInputModal.svelte";
 
