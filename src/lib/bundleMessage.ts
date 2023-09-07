@@ -4,7 +4,7 @@ function bundleMessage(data: Record<string, any>, coordinates: GeolocationPositi
   let coords: [number, number] | undefined;
 
   if ('coords' in coordinates) {
-    coords = [coordinates.coords.latitude, coordinates.coords.longitude];
+    coords = [coordinates.coords.longitude, coordinates.coords.latitude];
   }
 
   const properties: Record<string, any> = {
