@@ -1,6 +1,7 @@
 import { writable, readable } from "svelte/store";
 import type { Writable, Readable } from "svelte/store";
 import type { FeatureCollection } from "geojson";
+import { onMount } from "svelte";
 
 export const trackers: Writable<Tracker[]> = writable([]);
 
@@ -12,6 +13,7 @@ export const collected_data: Writable<FeatureCollection> = writable({
 export const mode: Writable<Mode> = writable("collect");
 
 export const coordinates: Writable<GeolocationPosition | {}> = writable({}, function start(set) {
+  onMount(() => {
     if ('geolocation' in navigator) {
       const watchId = navigator.geolocation.watchPosition(
         (position) => {
@@ -33,4 +35,6 @@ export const coordinates: Writable<GeolocationPosition | {}> = writable({}, func
     } else {
       console.error('Geolocation API is not available.');
     }
+  }
+  )
 });
