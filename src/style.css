@@ -1,21 +1,20 @@
-@font-face {
-  font-family: Urbanist;
-  src: url("./fonts/Urbanist-VariableFont_wght.woff2") format("woff2");
-}
+@import "@fontsource/manjari";
 
 html {
-  background-color: #f9f5f2;
-  font-family: Urbanist, Helvetica, Arial, sans-serif;
-}
-
-body {
-  margin: 5%;
+  /* background-color: #f9f5f2; */
+  background-color: #fff;
+  font-family: Manjari, Helvetica, Arial, sans-serif;
 }
 
 body > div {
   min-height: 95vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+input,
+button {
+  font-family: Manjari, Helvetica, Arial, sans-serif;
 }
 
 button {
@@ -40,6 +39,26 @@ button {
   touch-action: manipulation;
 }
 
-input {
-  font-family: Urbanist, Helvetica, Arial, sans-serif;
+footer {
+  display: grid;
+}
+
+footer > p {
+  justify-self: end;
+  margin-block-end: 0;
+}
+
+footer > nav {
+  justify-self: center;
+}
+
+button.input {
+  max-width: 100%;
+  background-color: #fff;
+  /* border-width: 4px; */
+  border-color: #000;
+  border-style: solid;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  aspect-ratio: 1 / 1;
+  height: 100%;
 }
