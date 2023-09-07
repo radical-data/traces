@@ -1,16 +1,12 @@
 import type { Feature, Point } from "geojson";
 
-function getCoordinates(): [number, number] | [number, number, number] {
-  // let location;
-  // navigator.geolocation.getCurrentPosition((position) => {
-  //   location.set(position.coords);
-  // });
-  // return location;
-  return [45, 0];
-}
+function bundleMessage(data: Record<string, any>, coordinates: GeolocationPosition | {}): Feature<Point> {
+  let coords: [number, number] | undefined;
 
-function bundleMessage(data: Record<string, any>): Feature<Point> {
-  const coordinates = getCoordinates();
+  if ('coords' in coordinates) {
+    coords = [coordinates.coords.latitude, coordinates.coords.longitude];
+  }
+
   const properties: Record<string, any> = {
     timestamp: new Date(),
   };
@@ -22,7 +18,7 @@ function bundleMessage(data: Record<string, any>): Feature<Point> {
     properties,
     geometry: {
       type: "Point",
-      coordinates,
+      coordinates: coords || [],
     },
   };
 

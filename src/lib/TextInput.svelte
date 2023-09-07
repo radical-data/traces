@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { collected_data } from "../stores";
+  import { collected_data, mode, coordinates } from "../stores";
   import { bundleMessage } from "$lib/bundleMessage";
-  import { mode } from "../stores";
   let title: string = "Text";
   let value: string = "";
   let lastValue: string = "";
@@ -36,7 +35,7 @@
         };
         $collected_data.features = [
           ...$collected_data.features,
-          bundleMessage(message),
+          bundleMessage(message, $coordinates),
         ];
         lastValue = value;
         value = "";
