@@ -2,8 +2,10 @@ import { writable, readable } from "svelte/store";
 import type { Writable, Readable } from "svelte/store";
 import type { FeatureCollection } from "geojson";
 import { onMount } from "svelte";
+import CountInput from "$lib/CountInput.svelte";
+import TextInput from "$lib/TextInput.svelte";
 
-export const trackers: Writable<Tracker[]> = writable([]);
+export const trackers: Writable<Tracker[]> = writable([{ component: CountInput }, { component: TextInput }]);
 
 export const collected_data: Writable<FeatureCollection> = writable({
   type: "FeatureCollection",

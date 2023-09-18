@@ -1,14 +1,11 @@
 <script lang="ts">
-  import Counter from "$lib/Counter.svelte";
+  import CountInput from "$lib/CountInput.svelte";
   import TextInput from "$lib/TextInput.svelte";
   import { onMount } from "svelte";
   import type { SvelteComponent } from "svelte";
 
   import { trackers, mode, coordinates } from "../stores";
   import ExportModal from "$lib/ExportModal.svelte";
-  import AddInputModal from "$lib/AddInputModal.svelte";
-
-  $trackers = [{ component: Counter }, { component: TextInput }];
 
   let showAddInputModal: boolean = false;
   function addInput() {
@@ -34,7 +31,7 @@
   {#if showAddInputModal}
     <div class="modal">
       <div class="modal-content">
-        <button on:click={() => chooseComponent(Counter)}>Counter</button>
+        <button on:click={() => chooseComponent(CountInput)}>Counter</button>
         <button on:click={() => chooseComponent(TextInput)}>Text</button>
       </div>
     </div>
