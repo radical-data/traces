@@ -1,22 +1,24 @@
-<script>
-  let showModal = false;
-  let component = "";
+<script lang="ts">
+  import type { SvelteComponent } from "svelte";
+  import { showAddInputModal, trackers } from "../stores";
+  import CountInput from "./CountInput.svelte";
+  import TextInput from "./TextInput.svelte";
 
-  function addInput() {
-    showModal = true;
+  function chooseComponent(type: typeof SvelteComponent) {
+    $trackers = [...$trackers, { component: type }];
+    showAddInputModal.set(false);
   }
 
-  function chooseComponent(type) {
-    component = type;
-    showModal = false;
+  function closeModal() {
+    showAddInputModal.set(false);
   }
 </script>
 
 <div class="modal">
   <div class="modal-content">
-    <button on:click={() => chooseComponent("Counter")}>Counter</button>
-    <button on:click={() => chooseComponent("Text")}>Text</button>
-    <button on:click={() => chooseComponent("Path")}>Path</button>
+    <button class="close-button" on:click={closeModal}>×</button>
+    <button on:click={() => chooseComponent(CountInput)}>Counter</button>
+    <button on:click={() => chooseComponent(TextInput)}>Text</button>
   </div>
 </div>
 
@@ -41,5 +43,16 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .close-button:hover {
+    color: red;
   }
 </style>

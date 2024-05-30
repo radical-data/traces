@@ -1,5 +1,5 @@
-import { writable, readable } from "svelte/store";
-import type { Writable, Readable } from "svelte/store";
+import { writable } from "svelte/store";
+import type { Writable } from "svelte/store";
 import type { FeatureCollection } from "geojson";
 import { onMount } from "svelte";
 import CountInput from "$lib/CountInput.svelte";
@@ -40,3 +40,5 @@ export const coordinates: Writable<GeolocationPosition | {}> = writable({}, func
   }
   )
 });
+
+export const showAddInputModal: Writable<boolean> = writable(false);
