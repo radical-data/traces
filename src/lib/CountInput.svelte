@@ -1,7 +1,9 @@
 <script lang="ts">
   import { textfit } from "svelte-textfit-v4";
-  import { collected_data, mode, coordinates } from "../stores";
+
+  import { collected_data, mode } from "../stores";
   import { bundleMessage } from "$lib/bundleMessage";
+  import { locationStore } from "../locationStore";
 
   export let title: string = "Counter";
   let value: number = 0;
@@ -17,7 +19,7 @@
       };
       $collected_data.features = [
         ...$collected_data.features,
-        bundleMessage(message, $coordinates),
+        bundleMessage(message, $locationStore),
       ];
     }
   }
