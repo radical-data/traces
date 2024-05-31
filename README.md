@@ -10,7 +10,7 @@ It is available to use at [traces.radicaldata.org](https://traces.radicaldata.or
 
 1. Clone the repository: `git clone https://github.com/radical-data/traces.git`
 1. Navigate to the project folder: `cd traces`.
-1. Install dependencies: `npm install --legacy-peer-deps`.
+1. Install dependencies: `npm install`.
 
 ### Develop
 
