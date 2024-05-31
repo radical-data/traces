@@ -16,7 +16,6 @@
     "file-saver": "^2.0.5",
     "geojson": "^0.5.0",
     "svelte": "^4.2.0",
-    "svelte-geolocation": "^0.3.0",
     "svelte-textfit-v4": "^1.1.4",
     "vite": "^4.2.1"
   },
