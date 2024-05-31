@@ -45,37 +45,61 @@
   }
 </script>
 
-<button class="input" on:click={update}>
-  <!-- <p>{lastValue}</p> -->
-  {#if $mode == "edit"}
-    <input
-      type="text"
-      {id}
-      bind:value={title}
-      placeholder="Input Name"
-      on:keydown={editKeySubmit}
-    />
-  {:else}
-    <input
-      type="text"
-      {id}
-      name="free-text"
-      placeholder={title}
-      bind:value
-      on:keydown={keySubmit}
-    />
-  {/if}
-</button>
+<div class="container">
+  <button class="input" on:click={update}>
+    <p>{lastValue}</p>
+    {#if $mode == "edit"}
+      <input
+        type="text"
+        {id}
+        bind:value={title}
+        placeholder="Input Name"
+        on:keydown={editKeySubmit}
+      />
+    {:else}
+      <input
+        type="text"
+        {id}
+        name="free-text"
+        placeholder={title}
+        bind:value
+        on:keydown={keySubmit}
+      />
+    {/if}
+  </button>
+</div>
 <label for={id}>{title}</label>
 
 <style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  p {
+    max-width: 100%;
+    overflow: clip;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
   label {
     display: none;
   }
+
   input {
     font-size: 1.3rem;
     width: 100%;
   }
+
   input[type="text"] {
     padding: 10px;
     width: calc(100% - 20px);
@@ -84,5 +108,10 @@
     border-color: black;
     border-style: solid;
     background-color: transparent;
+  }
+
+  .input p {
+    margin: 0;
+    text-align: center;
   }
 </style>
