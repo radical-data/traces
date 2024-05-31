@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { downloadGeojson, downloadCsv } from "$lib/controlData";
+  import { downloadGeojson, downloadCsv } from "$lib/utils/controlData";
 
   let downloadType: "geojson" | "csv" = "geojson";
 

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { collected_data, mode } from "../stores";
-  import { bundleMessage } from "$lib/bundleMessage";
-  import { locationStore } from "../locationStore";
+  import { collected_data, mode } from "$lib/stores";
+  import { bundleMessage } from "$lib/utils/bundleMessage";
+  import { locationStore } from "$lib/stores/location";
   let title: string = "Text";
   let value: string = "";
   let lastValue: string = "";

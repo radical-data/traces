@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { showAddInputModal, trackers } from "../stores";
-  import CountInput from "./CountInput.svelte";
-  import TextInput from "./TextInput.svelte";
+  import { showAddInputModal, trackers } from "$lib/stores";
+  import CountInput from "$lib/components/CountInput.svelte";
+  import TextInput from "$lib/components/TextInput.svelte";
 
   function chooseComponent(componentType: typeof CountInput | TextInput) {
     $trackers = [...$trackers, { component: componentType }];

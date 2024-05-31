@@ -1,5 +1,5 @@
 <script>
-  import { mode } from "../stores";
+  import { mode } from "$lib/stores";
 
   const handleEditClick = () => {
     $mode = "edit";

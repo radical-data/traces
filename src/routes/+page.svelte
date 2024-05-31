@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { trackers, mode, showAddInputModal } from "../stores";
-  import { locationStore } from "../locationStore";
-  import ExportModal from "$lib/ExportModal.svelte";
-  import AddInputModal from "$lib/AddInputModal.svelte";
+  import { trackers, mode, showAddInputModal } from "$lib/stores";
+  import { locationStore } from "$lib/stores/location";
+  import ExportModal from "$lib/components/ExportModal.svelte";
+  import AddInputModal from "$lib/components/AddInputModal.svelte";
 
   function addInput() {
     showAddInputModal.set(true)
