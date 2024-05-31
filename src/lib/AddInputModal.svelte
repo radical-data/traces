@@ -1,11 +1,10 @@
 <script lang="ts">
-  import type { SvelteComponent } from "svelte";
   import { showAddInputModal, trackers } from "../stores";
   import CountInput from "./CountInput.svelte";
   import TextInput from "./TextInput.svelte";
 
-  function chooseComponent(type: typeof SvelteComponent) {
-    $trackers = [...$trackers, { component: type }];
+  function chooseComponent(componentType) {
+    $trackers = [...$trackers, { component: componentType }];
     showAddInputModal.set(false);
   }
 
