@@ -3,7 +3,7 @@
 
   let downloadType: "geojson" | "csv" = "geojson";
 
-  function handleClick(event: MouseEvent): void {
+  function handleClick(): void {
     if (downloadType == "geojson") {
       downloadGeojson();
     } else if (downloadType == "csv") {

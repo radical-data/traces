@@ -3,7 +3,7 @@
   import CountInput from "./CountInput.svelte";
   import TextInput from "./TextInput.svelte";
 
-  function chooseComponent(componentType) {
+  function chooseComponent(componentType: typeof CountInput | TextInput) {
     $trackers = [...$trackers, { component: componentType }];
     showAddInputModal.set(false);
   }
