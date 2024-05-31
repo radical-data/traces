@@ -6,10 +6,16 @@
   function addInput() {
     showAddInputModal.set(true)
   }
-
 </script>
 
 <article>
+  {#if "coords" in $coordinates}
+    <p>
+      ({$coordinates.coords.latitude.toFixed(6)}, {$coordinates.coords.longitude.toFixed(6)})
+    </p>
+  {:else}
+    <p>Allow geolocation</p>
+  {/if}
   <section id="inputs">
     {#each $trackers as input}
       <svelte:component this={input.component} />
