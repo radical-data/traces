@@ -1,10 +1,10 @@
 <script>
   import Nav from "$lib/Nav.svelte";
-import "../style.css";
+  import "../style.css";
 </script>
 
 <svelte:head />
-<header><h1><span>Comapping </span>Data Walker</h1></header>
+<header><h1>Traces</h1></header>
 <main>
   <slot />
 </main>
