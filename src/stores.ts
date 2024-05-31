@@ -15,20 +15,22 @@ export const collected_data: Writable<FeatureCollection> = writable({
 export const mode: Writable<Mode> = writable("collect");
 
 export const coordinates: Writable<GeolocationPosition | {}> = writable({}, function start(set) {
+  const options: PositionOptions = {
+    enableHighAccuracy: true,
+  };
+
+  const successCallback = (position: GeolocationPosition) => {
+    set(position);
+    console.log('Geolocation updated:', position);
+  };
+
+  const errorCallback = (error: GeolocationPositionError) => {
+    console.error('Geolocation error:', error);
+  };
+
   onMount(() => {
     if ('geolocation' in navigator) {
-      const watchId = navigator.geolocation.watchPosition(
-        (position) => {
-          set(position);
-          console.log('Geolocation updated:', position);
-        },
-        (error) => {
-          console.error('Geolocation error:', error);
-        },
-        {
-          enableHighAccuracy: true,
-        }
-      );
+      const watchId = navigator.geolocation.watchPosition(successCallback, errorCallback, options);
 
       return function stop() {
         navigator.geolocation.clearWatch(watchId);
