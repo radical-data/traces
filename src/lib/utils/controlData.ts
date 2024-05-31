@@ -1,5 +1,5 @@
 import { get } from "svelte/store";
-import { collected_data } from "../stores";
+import { collected_data } from "$lib/stores";
 
 function generateFilename(): string {
     const now = new Date();
