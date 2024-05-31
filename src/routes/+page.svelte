@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { trackers, mode, coordinates, showAddInputModal } from "../stores";
+  import { trackers, mode, showAddInputModal } from "../stores";
+  import { locationStore } from "../locationStore";
   import ExportModal from "$lib/ExportModal.svelte";
   import AddInputModal from "$lib/AddInputModal.svelte";
 
@@ -9,9 +10,9 @@
 </script>
 
 <article>
-  {#if "coords" in $coordinates}
+  {#if $locationStore}
     <p>
-      ({$coordinates.coords.latitude.toFixed(6)}, {$coordinates.coords.longitude.toFixed(6)})
+      ({$locationStore.coords.latitude.toFixed(6)}, {$locationStore.coords.longitude.toFixed(6)})
     </p>
   {:else}
     <p>Allow geolocation</p>

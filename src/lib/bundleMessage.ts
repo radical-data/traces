@@ -1,10 +1,10 @@
 import type { Feature, Point } from "geojson";
 
-function bundleMessage(data: Record<string, any>, coordinates: GeolocationPosition | {}): Feature<Point> {
+function bundleMessage(data: Record<string, any>, location: GeolocationPosition | {}): Feature<Point> {
   let coords: [number, number] | undefined;
 
-  if ('coords' in coordinates) {
-    coords = [coordinates.coords.longitude, coordinates.coords.latitude];
+  if ('coords' in location) {
+    coords = [location.coords.longitude, location.coords.latitude];
   }
 
   const properties: Record<string, any> = {
