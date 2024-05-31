@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { textfit } from "svelte-textfit";
+  import { textfit } from "svelte-textfit-v4";
   import { collected_data, mode, coordinates } from "../stores";
   import { bundleMessage } from "$lib/bundleMessage";
 

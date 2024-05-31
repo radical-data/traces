@@ -1,28 +1,21 @@
 <script lang="ts">
-  import Counter from "$lib/Counter.svelte";
-  import TextInput from "$lib/TextInput.svelte";
-  import { onMount } from "svelte";
-  import type { SvelteComponent } from "svelte";
-
-  import { trackers, mode, coordinates } from "../stores";
+  import { trackers, mode, coordinates, showAddInputModal } from "../stores";
   import ExportModal from "$lib/ExportModal.svelte";
   import AddInputModal from "$lib/AddInputModal.svelte";
 
-  $trackers = [{ component: Counter }, { component: TextInput }];
-
-  let showAddInputModal: boolean = false;
   function addInput() {
-    showAddInputModal = true;
+    showAddInputModal.set(true)
   }
-
-  function chooseComponent(type: typeof SvelteComponent) {
-    $trackers = [...$trackers, { component: type }];
-    showAddInputModal = false;
-  }
-
 </script>
 
 <article>
+  {#if "coords" in $coordinates}
+    <p>
+      ({$coordinates.coords.latitude.toFixed(6)}, {$coordinates.coords.longitude.toFixed(6)})
+    </p>
+  {:else}
+    <p>Allow geolocation</p>
+  {/if}
   <section id="inputs">
     {#each $trackers as input}
       <svelte:component this={input.component} />
@@ -31,13 +24,8 @@
       <button on:click={addInput} class="input">Add Input</button>
     {/if}
   </section>
-  {#if showAddInputModal}
-    <div class="modal">
-      <div class="modal-content">
-        <button on:click={() => chooseComponent(Counter)}>Counter</button>
-        <button on:click={() => chooseComponent(TextInput)}>Text</button>
-      </div>
-    </div>
+  {#if $showAddInputModal}
+    <AddInputModal></AddInputModal>
   {/if}
   {#if $mode == "export"}
     <ExportModal />
