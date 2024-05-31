@@ -1,7 +1,49 @@
-<script>
+<script lang="ts">
   import Nav from "$lib/Nav.svelte";
   import "../style.css";
+  import Geolocation from "svelte-geolocation";
+
+  let getPosition = false;
+
+  function handlePosition(event) {
+    console.log('Position updated:', event.detail);
+  }
+
+  function handleError(event) {
+    console.error('Geolocation error:', event.detail);
+  }
 </script>
+
+<button on:click={() => (getPosition = true)}>Get geolocation</button>
+
+<Geolocation
+  {getPosition}
+  watch={true}
+  on:position={handlePosition}
+  on:error={handleError}
+  let:coords
+  let:loading
+  let:success
+  let:error
+  let:notSupported
+>
+  {#if notSupported}
+    Your browser does not support the Geolocation API.
+  {:else}
+    {#if loading}
+      Loading...
+    {/if}
+    {#if success}
+      {JSON.stringify(coords)}
+      {#if coords}
+        {console.log('Coordinates:', coords)}
+      {/if}
+    {/if}
+    {#if error}
+      An error occurred. {error.code} {error.message}
+    {/if}
+  {/if}
+</Geolocation>
 
 <svelte:head />
 <header><h1>Traces</h1></header>
