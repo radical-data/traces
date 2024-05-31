@@ -37,6 +37,7 @@
     background-color: #e3c8ff;
     border: 3px solid #000;
     border-radius: 20px 60px 0px 0px;
+    outlin: 3px 3px 0px 3px;
   }
   section button {
     background-color: white;
