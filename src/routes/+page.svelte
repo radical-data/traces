@@ -5,28 +5,44 @@
   import AddInputModal from "$lib/components/AddInputModal.svelte";
 
   function addInput() {
-    showAddInputModal.set(true)
+    showAddInputModal.set(true);
+  }
+
+  function removeTracker(index: number) {
+    trackers.update((trackerList) => {
+      trackerList.splice(index, 1);
+      return [...trackerList];
+    });
   }
 </script>
 
 <article>
   {#if $locationStore}
     <p>
-      ({$locationStore.coords.latitude.toFixed(6)}, {$locationStore.coords.longitude.toFixed(6)})
+      ({$locationStore.coords.latitude.toFixed(6)}, {$locationStore.coords.longitude.toFixed(
+        6
+      )})
     </p>
   {:else}
     <p>Allow geolocation</p>
   {/if}
   <section id="inputs">
-    {#each $trackers as input}
-      <svelte:component this={input.component} />
+    {#each $trackers as input, index (index)}
+      <div class="tracker-container">
+        <svelte:component this={input.component} />
+        {#if $mode == "edit"}
+          <button on:click={() => removeTracker(index)} class="delete-button"
+            >x</button
+          >
+        {/if}
+      </div>
     {/each}
     {#if $mode == "edit"}
       <button on:click={addInput} class="input">Add Input</button>
     {/if}
   </section>
   {#if $showAddInputModal}
-    <AddInputModal></AddInputModal>
+    <AddInputModal />
   {/if}
   {#if $mode == "export"}
     <ExportModal />
@@ -43,6 +59,22 @@
   button {
     aspect-ratio: 1;
     background-color: var(--secondary-color);
+  }
+
+  .tracker-container {
+    position: relative;
+  }
+
+  .delete-button {
+    position: absolute;
+    top: -12.5px;
+    left: -12.5px;
+    background-color: white;
+    color: black;
+    border-color: black;
+    border-style: solid;
+    border-radius: 50%;
+    cursor: pointer;
   }
 
   .modal {
