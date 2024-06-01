@@ -83,7 +83,7 @@
     display: block;
     position: fixed;
     bottom: 0;
-    z-index: 1;
+    z-index: 4;
     left: 0;
     width: 100%;
     height: 80%;
