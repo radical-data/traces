@@ -47,8 +47,9 @@
 </script>
 
 <div class="container">
-  <button class="input" on:click={update}>
-    <p>{lastValue}</p>
+  <div class="button-wrapper">
+    <p class="last-value">{lastValue}</p>
+    <button class="input" on:click={update}></button>
     {#if $mode == "edit"}
       <input
         type="text"
@@ -67,7 +68,7 @@
         on:keydown={keySubmit}
       />
     {/if}
-  </button>
+  </div>
 </div>
 <label for={id}>{title}</label>
 
@@ -78,9 +79,24 @@
     align-items: center;
     height: 100%;
   }
-  p {
+  .button-wrapper {
+    position: relative;
+    width: 100%;
     max-width: 100%;
-    overflow: clip;
+    overflow: hidden;
+  }
+  .last-value {
+    position: absolute;
+    top: 10px;
+    width: calc(100% - 20px);
+    text-align: center;
+    margin: 0;
+    padding: 0 10px;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-height: 30%;
+    overflow-y: scroll;
+    z-index: 1;
   }
   .input {
     display: flex;
@@ -88,29 +104,23 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 100%;
   }
   label {
     display: none;
   }
   input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 1.3rem;
-    width: 100%;
-  }
-  input[type="text"] {
+    width: 80%;
     padding: 10px;
-    width: calc(100% - 20px);
     border: 0;
-    border-block-end: 2px;
-    border-color: black;
-    border-style: solid;
+    border-bottom: 2px solid black;
     background-color: transparent;
-  }
-  p {
-    max-width: 100%;
-    overflow: clip;
-  }
-  .input p {
-    margin: 0;
-    text-align: center;
+    box-sizing: border-box;
+    z-index: 2;
   }
 </style>
