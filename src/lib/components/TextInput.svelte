@@ -2,7 +2,7 @@
   import { collected_data, mode } from "$lib/stores";
   import { bundleMessage } from "$lib/utils/bundleMessage";
   import { locationStore } from "$lib/stores/location";
-  let title: string = "Text";
+  let label: string = "Text";
   let value: string = "";
   let lastValue: string = "";
 
@@ -31,7 +31,7 @@
       } else {
         let message: Message = {
           input_type: "text",
-          title,
+          label,
           value,
         };
         $collected_data.features = [
@@ -54,7 +54,7 @@
       <input
         type="text"
         {id}
-        bind:value={title}
+        bind:value={label}
         placeholder="Input Name"
         on:keydown={editKeySubmit}
       />
@@ -63,14 +63,14 @@
         type="text"
         {id}
         name="free-text"
-        placeholder={title}
+        placeholder={label}
         bind:value
         on:keydown={keySubmit}
       />
     {/if}
   </div>
 </div>
-<label for={id}>{title}</label>
+<label for={id}>{label}</label>
 
 <style>
   .container {
