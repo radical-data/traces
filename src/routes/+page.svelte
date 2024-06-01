@@ -58,6 +58,8 @@
   }
   button {
     aspect-ratio: 1;
+  }
+  button.input {
     background-color: var(--secondary-color);
   }
 

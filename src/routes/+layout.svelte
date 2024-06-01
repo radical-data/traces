@@ -13,3 +13,12 @@
   <Nav></Nav>
   <p>A <a href="https://radicaldata.org">Radical Data</a> tool.</p>
 </footer>
+
+<style>
+  p>a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+
+  }
+</style>
