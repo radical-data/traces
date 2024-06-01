@@ -2,17 +2,21 @@
   import { downloadGeojson, downloadCsv } from "$lib/utils/controlData";
   import { convertGeojsonToSupabase } from "$lib/utils/geojsonToSupabase";
   import { collected_data } from "$lib/stores";
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
 
   let downloadType: "geojson" | "csv" = "geojson";
   let maps = [];
   let selectedMapId: string | null = null;
 
-  // Fetch maps from the server
   onMount(async () => {
-    const response = await fetch('/api/maps');
-    const result = await response.json();
-    maps = result.maps;
+    try {
+      const response = await fetch("/api/maps");
+      if (!response.ok) throw new Error("Failed to fetch maps");
+      const result = await response.json();
+      maps = result.maps;
+    } catch (error) {
+      console.error("Error fetching maps:", error);
+    }
   });
 
   function handleClick(): void {
@@ -29,25 +33,26 @@
       return;
     }
 
-    const response = await fetch("/api", {
-      method: "POST",
-      body: JSON.stringify(
-        convertGeojsonToSupabase(
-          $collected_data,
-          selectedMapId,
-          "anonymous"
-        )
-      ),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    try {
+      const response = await fetch("/api", {
+        method: "POST",
+        body: JSON.stringify(
+          convertGeojsonToSupabase($collected_data, selectedMapId, "anonymous")
+        ),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    if (response.ok) {
-      alert("Data successfully submitted!");
-    } else {
-      const error = await response.json();
-      alert(`Failed to submit data: ${error.message}`);
+      if (response.ok) {
+        alert("Data successfully submitted!");
+      } else {
+        const error = await response.json();
+        alert(`Failed to submit data: ${error.message}`);
+      }
+    } catch (error) {
+      console.error("Error submitting data:", error);
+      alert("An unexpected error occurred");
     }
   }
 </script>
@@ -61,7 +66,7 @@
       <option value="csv">CSV</option>
     </select>
     <button type="button" on:click={handleClick}>Download data</button>
-    <br>
+    <br />
     <label for="map">Select Map</label>
     <select id="map" bind:value={selectedMapId}>
       <option value="" disabled selected>Select a map</option>
