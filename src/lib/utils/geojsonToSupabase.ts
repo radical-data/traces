@@ -17,7 +17,7 @@ export function convertGeojsonToSupabase(
 ): SupabaseDataSubmission[] {
   const submissions = geojson.features.map((feature: any) => {
     const coords = feature.geometry.coordinates;
-    
+
     // Ensure coordinates are valid numbers
     if (
       !Array.isArray(coords) ||
@@ -36,7 +36,7 @@ export function convertGeojsonToSupabase(
       location: `SRID=4326;POINT(${coords[0]} ${coords[1]})`,
       timestamp: feature.properties.timestamp,
       submitted_by: submittedBy,
-      data_label: feature.properties.title
+      data_label: feature.properties.label
     };
   }).filter(submission => submission !== null);
 
