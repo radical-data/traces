@@ -5,7 +5,7 @@
   import { bundleMessage } from "$lib/utils/bundleMessage";
   import { locationStore } from "$lib/stores/location";
 
-  export let title: string = "Counter";
+  export let label: string = "Counter";
   let value: number = 0;
   let parent: Node;
 
@@ -14,7 +14,7 @@
       value += 1;
       let message: Message = {
         input_type: "counter",
-        title,
+        label,
         value: value.toString(),
       };
       $collected_data.features = [
@@ -29,16 +29,16 @@
   <p>{value}</p>
 
   {#if $mode == "edit"}
-    <input bind:value={title} type="text" id="buttonLabel" />
+    <input bind:value={label} type="text" id="buttonLabel" />
   {:else}
     <div bind:this={parent}>
       <span
         use:textfit={{
           parent,
-          update: { title },
+          update: { label },
         }}
       >
-        {title}
+        {label}
       </span>
     </div>
   {/if}</button

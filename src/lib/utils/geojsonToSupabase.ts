@@ -16,15 +16,31 @@ export function convertGeojsonToSupabase(
   submittedBy: string
 ): SupabaseDataSubmission[] {
   const submissions = geojson.features.map((feature: any) => {
+    const coords = feature.geometry.coordinates;
+
+    // Ensure coordinates are valid numbers
+    if (
+      !Array.isArray(coords) ||
+      coords.length !== 2 ||
+      typeof coords[0] !== "number" ||
+      typeof coords[1] !== "number"
+    ) {
+      console.error("Invalid coordinates found:", coords);
+      return null;
+    }
+
     return {
       map_id: mapId,
       data_type: feature.properties.input_type,
-      data_label: feature.properties.label,
       data_content: feature.properties.value,
-      location: `SRID=4326;POINT(${feature.geometry.coordinates[0]} ${feature.geometry.coordinates[1]})`,
+      location: `SRID=4326;POINT(${coords[0]} ${coords[1]})`,
       timestamp: feature.properties.timestamp,
       submitted_by: submittedBy,
+      data_label: feature.properties.label
     };
-  });
+  }).filter(submission => submission !== null);
+
+  console.log("Converted submissions:", submissions);
   return submissions;
 }
+
