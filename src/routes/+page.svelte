@@ -3,7 +3,7 @@
   import { locationStore } from "$lib/stores/location";
   import ExportModal from "$lib/components/ExportModal.svelte";
   import AddInputModal from "$lib/components/AddInputModal.svelte";
-  import closeIcon from "$lib/assets/close-icon.svg"
+  import closeIcon from "$lib/assets/close-icon.svg";
 
   function addInput() {
     showAddInputModal.set(true);
@@ -33,7 +33,7 @@
         <svelte:component this={input.component} />
         {#if $mode == "edit"}
           <button on:click={() => removeTracker(index)} class="delete-button">
-            <img src={closeIcon} alt="close icon">
+            <img src={closeIcon} alt="close icon" />
           </button>
         {/if}
       </div>
@@ -75,13 +75,18 @@
     background-color: white;
     color: black;
     border: 2px solid black;
-    border-radius: 50%;
+    border-radius: 999px;
     cursor: pointer;
     width: 25px;
     height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .delete-button img {
+    height: 10px;
+    object-fit: contain;
   }
 
   .modal {
