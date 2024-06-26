@@ -15,10 +15,9 @@
 </footer>
 
 <style>
-  p>a {
+  p > a {
     text-decoration: none;
     color: black;
     font-weight: bold;
-
   }
 </style>

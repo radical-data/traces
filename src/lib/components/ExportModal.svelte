@@ -112,7 +112,9 @@
 
   {#if $showConfirmationDialog}
     <div class="confirmation-dialog">
-      <p>Are you sure you want to clear all data? This action cannot be undone.</p>
+      <p>
+        Are you sure you want to clear all data? This action cannot be undone.
+      </p>
       <button type="button" on:click={clearIndexedDB}>Yes, clear data</button>
       <button type="button" on:click={cancelClearData}>Cancel</button>
     </div>

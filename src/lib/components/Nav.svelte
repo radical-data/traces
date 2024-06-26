@@ -69,7 +69,8 @@
   }
 
   nav button.active > .icon {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(3409%) hue-rotate(359deg) brightness(103%) contrast(104%);
+    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(3409%)
+      hue-rotate(359deg) brightness(103%) contrast(104%);
   }
 
   nav button img {

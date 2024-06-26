@@ -5,12 +5,18 @@ import CountInput from "$lib/components/CountInput.svelte";
 import TextInput from "$lib/components/TextInput.svelte";
 import { persistentStore } from "$lib/utils/IndexedDBUtil";
 
-export const trackers: Writable<Tracker[]> = writable([{ component: CountInput }, { component: TextInput }]);
+export const trackers: Writable<Tracker[]> = writable([
+  { component: CountInput },
+  { component: TextInput },
+]);
 
-export const collected_data: Writable<FeatureCollection> = persistentStore("collected_data", {
-  type: "FeatureCollection",
-  features: [],
-});
+export const collected_data: Writable<FeatureCollection> = persistentStore(
+  "collected_data",
+  {
+    type: "FeatureCollection",
+    features: [],
+  }
+);
 
 export const mode: Writable<Mode> = writable("collect");
 
