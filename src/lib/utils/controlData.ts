@@ -7,7 +7,7 @@ function generateFilename(): string {
   const time = now
     .toLocaleTimeString([], { hour12: false })
     .replaceAll(":", "-");
-  return `datawalker_${date}_${time}`;
+  return `traces_${date}_${time}`;
 }
 
 function downloadBlob(blob: Blob, extension: string) {
