@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { mode } from "$lib/stores";
   import editIcon from "$lib/assets/edit-icon.svg";
   import collectIcon from "$lib/assets/add-icon.svg";
