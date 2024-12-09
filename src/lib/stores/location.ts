@@ -1,7 +1,13 @@
 import { readable, type Readable } from "svelte/store";
+import { browser } from "$app/environment";
 
 export const locationStore: Readable<GeolocationPosition | null> =
   readable<GeolocationPosition | null>(null, (set) => {
+    if (!browser) {
+      set(null);
+      return;
+    }
+
     if (!("geolocation" in navigator)) {
       console.log("Geolocation not available");
       set(null);
