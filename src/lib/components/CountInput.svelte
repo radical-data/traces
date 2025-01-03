@@ -4,13 +4,14 @@
   import { collected_data, mode } from "$lib/stores";
   import { bundleMessage } from "$lib/utils/bundleMessage";
   import { locationStore } from "$lib/stores/location";
+  import { page } from "$app/state";
 
   export let label: string = "Counter";
   let value: number = 0;
   let parent: Node;
 
   function update() {
-    if ($mode == "collect") {
+    if (page.url.pathname == "/collect") {
       value += 1;
       let message: Message = {
         input_type: "counter",
@@ -28,7 +29,7 @@
 <button class="input" on:click={update}>
   <p>{value}</p>
 
-  {#if $mode == "edit"}
+  {#if page.url.pathname == "/edit"}
     <input bind:value={label} type="text" id="buttonLabel" />
   {:else}
     <div bind:this={parent}>

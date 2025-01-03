@@ -3,34 +3,47 @@
   import editIcon from "$lib/assets/edit-icon.svg";
   import collectIcon from "$lib/assets/add-icon.svg";
   import exportIcon from "$lib/assets/export-icon.svg";
+  import { onMount } from "svelte";
+  import { page } from "$app/state";
+  import { goto } from "$app/navigation";
 
   const handleEditClick = () => {
-    $mode = "edit";
+    goto("edit");
   };
 
   const handleCollectClick = () => {
-    $mode = "collect";
+    goto("collect");
   };
 
   const handleExportClick = () => {
-    $mode = "export";
+    goto("export");
   };
 
-  $: editClass = $mode === "edit" ? "active" : "";
-  $: collectClass = $mode === "collect" ? "active" : "";
-  $: exportClass = $mode === "export" ? "active" : "";
+  let editClass = $state("");
+  let collectClass = $state("");
+  let exportClass = $state("");
+
+  onMount(() => {
+    $effect(() => {
+      const path = page.url.pathname;
+
+      editClass = path === "/edit" ? "active" : "";
+      collectClass = path === "/collect" ? "active" : "";
+      exportClass = path === "/export" ? "active" : "";
+    });
+  });
 </script>
 
 <nav>
-  <button on:click={handleEditClick} class={editClass}>
+  <button onclick={handleEditClick} class={editClass}>
     <img src={editIcon} alt="edit icon" class="icon" />
     <span>Edit</span>
   </button>
-  <button on:click={handleCollectClick} class={collectClass}>
+  <button onclick={handleCollectClick} class={collectClass}>
     <img src={collectIcon} alt="collect icon" class="icon" />
     <span>Collect</span>
   </button>
-  <button on:click={handleExportClick} class={exportClass}>
+  <button onclick={handleExportClick} class={exportClass}>
     <img src={exportIcon} alt="export icon" class="icon" />
     <span>Export</span>
   </button>
