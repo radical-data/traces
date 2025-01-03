@@ -6,7 +6,9 @@
 <svelte:head />
 <header><h1>Traces</h1></header>
 <main>
-  <slot />
+  <article>
+    <slot />
+  </article>
 </main>
 
 <footer>

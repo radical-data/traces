@@ -49,14 +49,14 @@
 <div class="container">
   <div class="button-wrapper">
     <p class="last-value">{lastValue}</p>
-    <button class="input" on:click={update}></button>
+    <button class="input" onclick={update}></button>
     {#if $mode == "edit"}
       <input
         type="text"
         {id}
         bind:value={label}
         placeholder="Input Name"
-        on:keydown={editKeySubmit}
+        onkeydown={editKeySubmit}
       />
     {:else}
       <input
@@ -65,7 +65,7 @@
         name="free-text"
         placeholder={label}
         bind:value
-        on:keydown={keySubmit}
+        onkeydown={keySubmit}
       />
     {/if}
   </div>
